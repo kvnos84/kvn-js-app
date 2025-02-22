@@ -1,5 +1,4 @@
 // Pokemon Array-list
-let pokemonList = [];
 let pokemonList = [
     {
         name: "Bulbasaur",
@@ -18,21 +17,32 @@ let pokemonList = [
     }
 ];
 
-console.log(pokemonList);
+console.log(pokemonList);  // Logs the pokemon list to the console for debugging
 
 /*
    This loop goes through each Pokémon in the pokemonList array.
-   It uses document.write() to display the Pokémon's name and height
-   in a paragraph on the webpage.
+   It uses innerHTML to display the Pokémon's name and height
+   in a div on the webpage.
 */
+
+// Find the container element where we will display the list
+let pokemonContainer = document.getElementById("pokemon-container");
+
+// Loop through each Pokémon and add it to the page
 for (let i = 0; i < pokemonList.length; i++) {
     let name = pokemonList[i].name;
     let height = pokemonList[i].height;
 
-    let text =
-        height > 1
-            ? `<span class="card__front--name">${name}</span> (height: ${height}) - Wow, that's big!`
-            : `<span class="card__front--name">${name}</span> (height: ${height})`;
+    // Check if the Pokémon's height is above 20 to highlight it
+    let text;
+    if (height > 20) {
+        // If the height is above 20, add the "Wow, that's big!" message
+        text = `<span class="card__front--name">${name}</span> (height: ${height}) - Wow, that's big!`;
+    } else {
+        // Otherwise, just display the name and height
+        text = `<span class="card__front--name">${name}</span> (height: ${height})`;
+    }
 
-    document.write(`<div class="card__front">${text}</div>`);
+    // Append each Pokémon's information to the container
+    pokemonContainer.innerHTML += `<div class="card__front">${text}</div>`;
 }
