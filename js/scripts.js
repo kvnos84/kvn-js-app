@@ -6,14 +6,14 @@ let pokemonList = [
         types: ["grass", "poison"]
     },
     {
-        name: "Charmander",
-        height: 6,
+        name: "Charmeleon",
+        height: 10,
         types: ["fire"]
     },
     {
-        name: "Squirtle",
-        height: 5,
-        types: ["water"]
+        name: "Arbok",
+        height: 35,
+        types: ["poison"]
     }
 ];
 
