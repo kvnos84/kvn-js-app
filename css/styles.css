@@ -1,0 +1,13 @@
+.pokemon-button {
+    background-color: #ffcc00; /* Yellow */
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .pokemon-button:hover {
+    background-color: #ff9900; /* Orange on hover */
+  }  
