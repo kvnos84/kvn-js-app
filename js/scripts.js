@@ -34,19 +34,21 @@ if (!pokemonListElement) {
 } else {
     // Loop through Pokémon and add each one as a list item
     pokemonRepository.getAll().forEach((pokemon) => {
-        // Create the list item (<li>) for each Pokémon
         let listItem = document.createElement("li");
 
         // Create the button for each Pokémon
         let button = document.createElement("button");
-        
+
         // Set the button's text to the Pokémon's name
         button.innerText = pokemon.name;
-        
+
+        // Add the class to the button
+        button.classList.add('my-button-class'); // Add custom class
+
         // Add the button to the list item
         listItem.appendChild(button);
 
-        // Optionally, add Pokémon height to the list item (you can customize this)
+        // Optionally, add Pokémon height to the list item
         listItem.appendChild(document.createTextNode(` (height: ${pokemon.height})`));
 
         // Append the list item to the <ul> element

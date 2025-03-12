@@ -1,15 +1,17 @@
-.pokemon-list {
-  list-style-type: none; /* Remove bullet points */
-  padding: 0;
+.my-button-class {
+  background-color: #4CAF50; /* Green */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Add padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Allow the button to sit next to other elements */
+  font-size: 16px; /* Set font size */
+  cursor: pointer; /* Make the cursor a pointer on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for background color change */
 }
 
-.pokemon-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin: 5px 0;
-  background-color: #f9f9f9;
-  border-radius: 5px;
+.my-button-class:hover {
+  background-color: #45a049; /* Darker green on hover */
 }
