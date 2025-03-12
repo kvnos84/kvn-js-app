@@ -32,7 +32,7 @@ let pokemonListElement = document.querySelector(".pokemon-list");
 if (!pokemonListElement) {
     console.error("Error: .pokemon-list not found!");
 } else {
-    // Empty the forEach loop block by removing any document.write()
+    // Loop through Pokémon and add each one as a list item
     pokemonRepository.getAll().forEach((pokemon) => {
         // Create the list item (<li>) for each Pokémon
         let listItem = document.createElement("li");
@@ -44,7 +44,7 @@ if (!pokemonListElement) {
         button.classList.add("pokemon-button"); // Apply styles
         listItem.appendChild(button); // Add the button to the list item
 
-        // Append the list item to the <ul> element (this happens inside the forEach loop)
+        // Append the list item to the <ul> element
         pokemonListElement.appendChild(listItem);
     });
 }
