@@ -1,13 +1,15 @@
-.pokemon-button {
-    background-color: #ffcc00; /* Yellow */
-    border: none;
-    padding: 10px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .pokemon-button:hover {
-    background-color: #ff9900; /* Orange on hover */
-  }  
+.pokemon-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+}
+
+.pokemon-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}

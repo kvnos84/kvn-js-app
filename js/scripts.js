@@ -1,6 +1,5 @@
 // IIFE to store and manage the Pokémon list
 let pokemonRepository = (function () {
-    // Private array to store Pokémon data
     let pokemonList = [
         {
             name: "Bulbasaur",
@@ -19,12 +18,10 @@ let pokemonRepository = (function () {
         }
     ];
 
-    // Function to return all Pokémon
     function getAll() {
         return pokemonList;
     }
 
-    // Function to add a new Pokémon
     function add(pokemon) {
         if (
             typeof pokemon === "object" &&
@@ -38,30 +35,33 @@ let pokemonRepository = (function () {
         }
     }
 
-    // Expose public methods while keeping pokemonList private
     return {
         getAll: getAll,
         add: add
     };
 })();
 
-// Find the container element where Pokémon will be displayed
-let pokemonContainer = document.getElementById("pokemon-container");
+// Find the unordered list where Pokémon will be displayed
+let pokemonListElement = document.querySelector(".pokemon-list");
 
-// Use forEach to loop through the Pokémon list and display them
-pokemonRepository.getAll().forEach((pokemon) => {
-    let text;
+if (!pokemonListElement) {
+    console.error("Error: .pokemon-list not found!");
+} else {
+    // Loop through Pokémon and add each one as a list item
+    pokemonRepository.getAll().forEach((pokemon) => {
+        let listItem = document.createElement("li"); // Create <li> element
+        listItem.textContent = `${pokemon.name} (height: ${pokemon.height})`;
 
-    // Check if the Pokémon's height is above 20 to highlight it
-    if (pokemon.height > 20) {
-        text = `<span class="card__front--name">${pokemon.name}</span> (height: ${pokemon.height}) - Wow, that's big!`;
-    } else {
-        text = `<span class="card__front--name">${pokemon.name}</span> (height: ${pokemon.height})`;
-    }
+        // OPTIONAL: Add a button to each Pokémon entry
+        let button = document.createElement("button");
+        button.textContent = "Details";
+        button.classList.add("pokemon-button"); // Apply styles
+        listItem.appendChild(button); // Add button to list item
 
-    // Append each Pokémon's information to the container
-    pokemonContainer.innerHTML += `<div class="card__front">${text}</div>`;
-});
+        // Append the list item to the unordered list
+        pokemonListElement.appendChild(listItem);
+    });
+}
 
 // Example: Adding a new Pokémon using the IIFE's add() method
 pokemonRepository.add({ name: "Pikachu", height: 4, types: ["electric"] });
