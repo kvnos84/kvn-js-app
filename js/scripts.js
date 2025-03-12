@@ -63,12 +63,6 @@ let pokemonRepository = (function () {
         // Add the button to the list item
         listItem.appendChild(button);
 
-        // Optionally, add Pokémon height to the list item
-        let heightText = document.createElement("span");
-        heightText.classList.add("pokemon-height");
-        heightText.innerText = ` (height: ${pokemon.height})`;
-        listItem.appendChild(heightText);
-
         // Append the list item to the <ul> element
         pokemonListElement.appendChild(listItem);
 
