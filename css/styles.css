@@ -59,3 +59,41 @@ header h1 {
   color: #000000; /* Slightly darker text color */
   margin-top: 10px; /* Add some space between the button and the height text */
 }
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 28px; /* Smaller header text */
+  }
+
+  .pokemon-list {
+    justify-content: center; /* Center the list items on small screens */
+  }
+
+  .my-button-class {
+    width: 120px; /* Smaller buttons */
+    height: 120px; /* Maintain square shape */
+    font-size: 16px; /* Smaller text inside buttons */
+  }
+
+  .pokemon-height {
+    font-size: 12px; /* Smaller font for height text */
+  }
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 1200px) {
+  header h1 {
+    font-size: 48px; /* Larger header text on larger screens */
+  }
+
+  .pokemon-list {
+    justify-content: space-evenly; /* Even distribution of buttons on larger screens */
+  }
+
+  .my-button-class {
+    width: 200px; /* Larger buttons */
+    height: 200px; /* Maintain square shape */
+    font-size: 20px; /* Larger text inside buttons */
+  }
+}
