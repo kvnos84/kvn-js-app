@@ -14,23 +14,24 @@ header h1 {
 
 /* Style for the Pokémon buttons */
 .my-button-class {
-  background-color: #2D4595; /* Blue background */
+  background-color: #2D4595; /* Green background */
   color: #FDC00E; /* Yellow text */
   border: none; /* Remove default border */
-  padding: 50px; /* Increase padding to make buttons larger */
+  padding: 50px; /* Increase padding to make the buttons larger */
   text-align: center; /* Center text inside the button */
   text-decoration: none; /* Remove underline */
   display: inline-block; /* Keep buttons inline */
-  font-size: 36px; /* Increase font size */
+  font-size: 18px; /* Larger font size */
   cursor: pointer; /* Make the cursor a pointer on hover */
-  border-radius: 8px; /* More rounded corners */
+  border-radius: 8px; /* Rounded corners */
   transition: background-color 0.3s; /* Smooth transition for background color */
   width: 150px; /* Set fixed width */
   height: 150px; /* Set fixed height to make the button square */
   line-height: 150px; /* Center the text vertically inside the button */
+}
 
 .my-button-class:hover {
-  background-color: #132561; /* Darker blue on hover */
+  background-color: #152969; /* Darker blue on hover */
 }
 
 /* Style for the list of Pokémon */
