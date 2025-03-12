@@ -21,7 +21,7 @@ header h1 {
   text-align: center; /* Center text inside the button */
   text-decoration: none; /* Remove underline */
   display: inline-block; /* Keep buttons inline */
-  font-size: 18px; /* Increase font size */
+  font-size: 36px; /* Increase font size */
   min-height: 300px; /* Set a minimum height */
   min-width: 300px; /* Set a minimum width */
   cursor: pointer; /* Make the cursor a pointer on hover */
@@ -34,14 +34,9 @@ header h1 {
 }
 
 /* Styling for the list */
-.pokemon-list {
-  list-style-type: none; /* Remove default list styling */
-  padding: 0;
-  margin: 20px 0;
-  display: inline-flex; /* Display list items in a row */
-  justify-content: center; /* Center list items */
-  flex-wrap: wrap; /* Wrap list items to the next line */
-  align-items: center;
+.pokemon-list li {
+  text-align: center; /* Center text inside each list item */
+  width: 4000px; /* Set width for each list item */
 }
 
 .pokemon-list li {
