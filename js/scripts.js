@@ -33,27 +33,27 @@ if (!pokemonListElement) {
     console.error("Error: .pokemon-list not found!");
 } else {
     // Loop through Pokémon and add each one as a list item
-    pokemonRepository.getAll().forEach((pokemon) => {
-        let listItem = document.createElement("li");
+pokemonRepository.getAll().forEach((pokemon) => {
+    let listItem = document.createElement("li"); // Create a list item for each Pokémon
 
-        // Create the button for each Pokémon
-        let button = document.createElement("button");
+    // Create the button for each Pokémon
+    let button = document.createElement("button");
 
-        // Set the button's text to the Pokémon's name
-        button.innerText = pokemon.name;
+    // Set the button's text to the Pokémon's name
+    button.innerText = pokemon.name;
 
-        // Add the class to the button
-        button.classList.add('my-button-class'); // Add custom class
+    // Add the class to the button
+    button.classList.add('my-button-class'); // Add custom class
 
-        // Add the button to the list item
-        listItem.appendChild(button);
+    // Append the button to the list item
+    listItem.appendChild(button);
 
-        // Optionally, add Pokémon height to the list item
-        listItem.appendChild(document.createTextNode(` (height: ${pokemon.height})`));
+    // Optionally, add Pokémon height to the list item
+    listItem.appendChild(document.createTextNode(` (height: ${pokemon.height})`));
 
-        // Append the list item to the <ul> element
-        pokemonListElement.appendChild(listItem);
-    });
+    // Append the list item to the <ul> element
+    pokemonListElement.appendChild(listItem); // Append the <li> to the <ul>
+});
 }
 
 // Example: Adding a new Pokémon

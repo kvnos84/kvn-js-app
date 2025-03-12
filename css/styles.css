@@ -1,17 +1,47 @@
+/* Style for the header */
+header {
+  background-color: #ffcc00; /* Yellow background */
+  color: #fff; /* White text */
+  text-align: center; /* Center the text */
+  padding: 20px 0; /* Add padding above and below */
+  font-family: Arial, sans-serif; /* Choose a font */
+}
+
+header h1 {
+  font-size: 36px; /* Make the header text larger */
+  margin: 0; /* Remove default margin */
+}
+
+/* Style for the buttons */
 .my-button-class {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50; /* Green background */
   color: white; /* White text */
   border: none; /* Remove default border */
-  padding: 10px 20px; /* Add padding */
-  text-align: center; /* Center text */
+  padding: 15px 30px; /* Increase padding to make buttons larger */
+  text-align: center; /* Center text inside the button */
   text-decoration: none; /* Remove underline */
-  display: inline-block; /* Allow the button to sit next to other elements */
-  font-size: 16px; /* Set font size */
+  display: inline-block; /* Keep buttons inline */
+  font-size: 18px; /* Increase font size */
   cursor: pointer; /* Make the cursor a pointer on hover */
-  border-radius: 5px; /* Rounded corners */
-  transition: background-color 0.3s; /* Smooth transition for background color change */
+  border-radius: 8px; /* More rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
 .my-button-class:hover {
   background-color: #45a049; /* Darker green on hover */
+}
+
+/* Styling for the list */
+.pokemon-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemon-list li {
+  margin: 10px 0; /* Space between list items */
+  text-align: center; /* Center text inside each list item */
 }
