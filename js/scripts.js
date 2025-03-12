@@ -23,6 +23,13 @@ let pokemonRepository = (function () {
         }
     }
 
+    // Function to add event listener to a button
+    function addEventListenerToButton(button, pokemon) {
+        button.addEventListener("click", function () {
+            showDetails(pokemon); // Call showDetails with the specific Pokémon object
+        });
+    }
+
     // Function to add a Pokémon as a list item
     function addListItem(pokemon) {
         // Create list item (li) for the Pokémon
@@ -48,6 +55,14 @@ let pokemonRepository = (function () {
 
         // Append the list item to the <ul> element
         pokemonListElement.appendChild(listItem);
+
+        // Add event listener to the button
+        addEventListenerToButton(button, pokemon);
+    }
+
+    // Function to show details of the clicked Pokémon
+    function showDetails(pokemon) {
+        console.log(pokemon); // Log the Pokémon object to the console
     }
 
     // Expose public methods while keeping pokemonList private
