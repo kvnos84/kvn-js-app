@@ -33,13 +33,17 @@ header h1 {
   background-color: #182d71; /* Darker green on hover */
 }
 
-/* Styling for the list */
-.pokemon-list li {
-  text-align: center; /* Center text inside each list item */
-  width: 4000px; /* Set width for each list item */
+/* Style for the list of Pokémon */
+.pokemon-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center; /* Center align the list items horizontally */
+  gap: 20px; /* Space between the buttons horizontally */
 }
 
 .pokemon-list li {
-  margin: 10px 0; /* Space between list items */
   text-align: center; /* Center text inside each list item */
+  width: 150px; /* Set width for each list item */
 }
