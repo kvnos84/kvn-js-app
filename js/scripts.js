@@ -1,21 +1,9 @@
 // IIFE to store and manage the Pokémon list
 let pokemonRepository = (function () {
     let pokemonList = [
-        {
-            name: "Bulbasaur",
-            height: 7,
-            types: ["grass", "poison"]
-        },
-        {
-            name: "Charmeleon",
-            height: 10,
-            types: ["fire"]
-        },
-        {
-            name: "Arbok",
-            height: 35,
-            types: ["poison"]
-        }
+        { name: "Bulbasaur", height: 7, types: ["grass", "poison"] },
+        { name: "Charmeleon", height: 10, types: ["fire"] },
+        { name: "Arbok", height: 35, types: ["poison"] }
     ];
 
     function getAll() {
@@ -35,13 +23,10 @@ let pokemonRepository = (function () {
         }
     }
 
-    return {
-        getAll: getAll,
-        add: add
-    };
+    return { getAll: getAll, add: add };
 })();
 
-// Find the unordered list where Pokémon will be displayed
+// Select the unordered list once outside the forEach loop
 let pokemonListElement = document.querySelector(".pokemon-list");
 
 if (!pokemonListElement) {
@@ -49,20 +34,24 @@ if (!pokemonListElement) {
 } else {
     // Loop through Pokémon and add each one as a list item
     pokemonRepository.getAll().forEach((pokemon) => {
-        let listItem = document.createElement("li"); // Create <li> element
+        // Create a variable inside the loop and assign it the ul element
+        let ulElement = document.querySelector(".pokemon-list");  // Inside the forEach loop
+        
+        // Create the list item (<li>) for each Pokémon
+        let listItem = document.createElement("li");
         listItem.textContent = `${pokemon.name} (height: ${pokemon.height})`;
-
-        // OPTIONAL: Add a button to each Pokémon entry
+        
+        // Create a "Details" button
         let button = document.createElement("button");
         button.textContent = "Details";
         button.classList.add("pokemon-button"); // Apply styles
-        listItem.appendChild(button); // Add button to list item
+        listItem.appendChild(button); // Add the button to the list item
 
-        // Append the list item to the unordered list
-        pokemonListElement.appendChild(listItem);
+        // Append the list item to the <ul> element (this happens inside the forEach loop)
+        ulElement.appendChild(listItem);
     });
 }
 
-// Example: Adding a new Pokémon using the IIFE's add() method
+// Example: Adding a new Pokémon
 pokemonRepository.add({ name: "Pikachu", height: 4, types: ["electric"] });
 console.log(pokemonRepository.getAll()); // Now includes Pikachu
