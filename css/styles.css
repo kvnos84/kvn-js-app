@@ -60,6 +60,57 @@ header h1 {
   margin-top: 10px; /* Add some space between the button and the height text */
 }
 
+/* Modal Background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
+}
+
+/* Close Button */
+.modal-close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* For styling modal content */
+#modal-title {
+  font-size: 24px;
+  color: #333;
+}
+
+#modal-height, #modal-types {
+  font-size: 18px;
+  color: #555;
+}
+
 /* Responsive Design for Mobile */
 @media (max-width: 600px) {
   header h1 {

@@ -23,11 +23,27 @@ let pokemonRepository = (function () {
         }
     }
 
-    // Function to add event listener to a button
-    function addEventListenerToButton(button, pokemon) {
-        button.addEventListener("click", function () {
-            showDetails(pokemon); // Call showDetails with the specific Pokémon object
-        });
+    // Function to show details of the clicked Pokémon in a modal
+    function showDetails(pokemon) {
+        // Get the modal elements
+        const modal = document.getElementById("pokemon-modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalHeight = document.getElementById("modal-height");
+        const modalTypes = document.getElementById("modal-types");
+
+        // Set the modal content with Pokémon details
+        modalTitle.innerText = pokemon.name;
+        modalHeight.innerText = `Height: ${pokemon.height}`;
+        modalTypes.innerText = `Types: ${pokemon.types.join(", ")}`;
+
+        // Display the modal
+        modal.style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        const modal = document.getElementById("pokemon-modal");
+        modal.style.display = "none";
     }
 
     // Function to add a Pokémon as a list item
@@ -57,19 +73,17 @@ let pokemonRepository = (function () {
         pokemonListElement.appendChild(listItem);
 
         // Add event listener to the button
-        addEventListenerToButton(button, pokemon);
-    }
-
-    // Function to show details of the clicked Pokémon
-    function showDetails(pokemon) {
-        console.log(pokemon); // Log the Pokémon object to the console
+        button.addEventListener("click", function () {
+            showDetails(pokemon); // Call showDetails with the specific Pokémon object
+        });
     }
 
     // Expose public methods while keeping pokemonList private
     return {
         getAll: getAll,
         add: add,
-        addListItem: addListItem // Expose the addListItem function
+        addListItem: addListItem, // Expose the addListItem function
+        closeModal: closeModal // Expose the closeModal function to close the modal
     };
 })();
 
@@ -88,3 +102,16 @@ if (!pokemonListElement) {
 // Example: Adding a new Pokémon
 pokemonRepository.add({ name: "Pikachu", height: 4, types: ["electric"] });
 console.log(pokemonRepository.getAll()); // Now includes Pikachu
+
+// Close the modal when the user clicks on the close button
+document.getElementById("modal-close").addEventListener("click", function () {
+    pokemonRepository.closeModal(); // Close the modal
+});
+
+// Close the modal if the user clicks anywhere outside the modal content
+window.onclick = function (event) {
+    const modal = document.getElementById("pokemon-modal");
+    if (event.target === modal) {
+        pokemonRepository.closeModal(); // Close the modal
+    }
+};
