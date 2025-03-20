@@ -50,7 +50,6 @@ let pokemonRepository = (function () {
     // Function to show details of the clicked Pokémon in a modal
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-            const modal = document.getElementById("pokemon-modal");
             const modalTitle = document.getElementById("modal-title");
             const modalHeight = document.getElementById("modal-height");
             const modalTypes = document.getElementById("modal-types");
@@ -60,23 +59,24 @@ let pokemonRepository = (function () {
             modalHeight.innerText = `Height: ${pokemon.height}`;
             modalTypes.innerText = `Types: ${pokemon.types.join(", ")}`;
             modalImage.src = pokemon.imgUrl;
-
-            modal.style.display = "block";
         });
-    }
-
-    function closeModal() {
-        const modal = document.getElementById("pokemon-modal");
-        modal.style.display = "none";
     }
 
     function addListItem(pokemon) {
         let listItem = document.createElement("li");
+        listItem.classList.add("list-group-item");
+
         let button = document.createElement("button");
         button.innerText = pokemon.name;
-        button.classList.add('my-button-class');
+        button.classList.add("btn", "btn-primary", "w-100", "mt-2");
+
+        // Add the Bootstrap modal trigger attributes
+        button.setAttribute("data-toggle", "modal");
+        button.setAttribute("data-target", "#pokemon-modal"); // Link to the modal with ID "pokemon-modal"
+
         listItem.appendChild(button);
         pokemonListElement.appendChild(listItem);
+
         button.addEventListener("click", function () {
             showDetails(pokemon);
         });
@@ -87,8 +87,7 @@ let pokemonRepository = (function () {
         add: add,
         addListItem: addListItem,
         loadList: loadList,
-        loadDetails: loadDetails,
-        closeModal: closeModal
+        loadDetails: loadDetails
     };
 })();
 
@@ -103,15 +102,3 @@ if (!pokemonListElement) {
         });
     });
 }
-
-// Close the modal when the user clicks on the close button
-document.getElementById("modal-close").addEventListener("click", function () {
-    pokemonRepository.closeModal();
-});
-
-window.onclick = function (event) {
-    const modal = document.getElementById("pokemon-modal");
-    if (event.target === modal) {
-        pokemonRepository.closeModal();
-    }
-};
